@@ -20,7 +20,7 @@ FactoryGirl.define do
     context 'self'
     lines [42]
     message 'smell warning message'
-    parameters     {}
+    parameters Hash.new
 
     initialize_with do
       new(smell_detector, context: context,
