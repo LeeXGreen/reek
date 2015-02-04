@@ -70,7 +70,10 @@ module Reek
       end
 
       def ignored_iterator?(exp)
-        name = exp.call.method_name.to_s
+        c = exp.call
+        return false unless c.respond_to?(:method_name)
+
+        name = c.method_name.to_s
         @ignore_iterators.any? { |pattern| /#{pattern}/ =~ name }
       end
     end
